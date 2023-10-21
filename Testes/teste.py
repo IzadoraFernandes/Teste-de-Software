@@ -1,27 +1,26 @@
-import pytest
-from identifail import Identifail
+from source.identifier.identifier import Identifier
 
 def test_validar_entrada_caso_valido():
-    identificacao = Identifail("ID", "A12345")
+    identificacao = Identifier("ID", "A12345")
     resultado = identificacao.validar_entrada()
     assert resultado == "Válido"
 
 def test_validar_entrada_caso_invalido_letra_inicial():
-    identificacao = Identifail("ID", "12345A")
+    identificacao = Identifier("ID", "12345A")
     resultado = identificacao.validar_entrada()
     assert resultado == "Inválido"
 
 def test_validar_entrada_caso_invalido_comprimento():
-    identificacao = Identifail("ID", "AB123456")
+    identificacao = Identifier("ID", "AB123456")
     resultado = identificacao.validar_entrada()
     assert resultado == "Inválido"
 
 def test_validar_entrada_caso_invalido_em_branco():
-    identificacao = Identifail("ID", "")
+    identificacao = Identifier("ID", "")
     resultado = identificacao.validar_entrada()
     assert resultado == "Inválido"
 
 def test_validar_entrada_caso_invalido_caracter_especial():
-    identificacao = Identifail("ID", "A@1234")
+    identificacao = Identifier("ID", "A@1234")
     resultado = identificacao.validar_entrada()
     assert resultado == "Inválido"

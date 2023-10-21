@@ -1,6 +1,6 @@
 import re
 
-class Identifail:
+class Identifier:
     def __init__(self, id, elem):
         self.elem = elem
         self.id = id
